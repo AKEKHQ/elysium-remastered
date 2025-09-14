@@ -8444,6 +8444,7 @@ spellweapon                5   2 # Storm magic at level 2.
 meleeweapon                1   6 # hammer.
 human                            
 allitemslots                     # Has the full set of item slots.
+libmastery                     2 # Can level up in a level 2 library.
 
 descr "Horned Shamans are spiritual leaders of the Horned tribes, living deep in the mountains they have deep conection to the Lord of the sky, calling his wrath upon enemies. They say totems of thunder are inhabited by the spirits of Horned Shamans"
 
@@ -8511,6 +8512,7 @@ spellweapon               47   2 # Beast wards at level 2.
 meleeweapon                1   3 # Staff
 human                            
 allitemslots                     # Has the full set of item slots.
+libmastery                     2 # Can level up in a level 2 library.
 
 descr "Wolf Shamans are spiritual guides of the Wolf tribes, wear the pelts of beasts calling upon them in battle. They say beast totems are inhabited by spirits of Wolf shamans"
 
@@ -8564,6 +8566,7 @@ spellweapon               46   2 # Maladies at level 2.
 meleeweapon                1   3 # Staff
 human                            
 allitemslots                     # Has the full set of item slots.
+libmastery                     2 # Can level up in a level 2 library.
 female
 descr "Maiden Priestes are spiritual leaders of Steel Maiden tribes teaching ways of the Oath of Erka, they say spirits called to totems of maladies belonged to Maiden Priesteses"
 
@@ -9076,29 +9079,26 @@ addcomrec   "Barbarian Leader"                	100 25 10 0
 	reclimiter "-Barbarian King"
 addcomrec   "Mounted Chief"                    	10 25 10 0 
 addmercrec  "Mounted Scout"                    	15 1 15 10 0 
-addmercrec "Horned Warrior" 			10 7 65 10 0
-	reclimiter "+Barbarian Warlord"
-	reclimiter "+Barbarian King"
-addcomrec "Horned Chief"   			 -1 1 25 5 0
+addunitrec "Horned Warrior" 			100 7 65 0 10
+    reclimiter "+Horned Chief"
+addcomrec "Horned Chief"   			 10 1 50 5 10
 	reclimiter "+Barbarian Warlord"
 	reclimiter "+Barbarian King" 
-addcomrec   "Horned Shaman"          10 1 75 5 0
-	reclimiter "+Barbarian King"
-addmercrec "Wolf Warrior"       		10 7 65 10 0
+addcomrec   "Horned Shaman"          5 1 75 5 0
+	reclimiter "+Horned Chief"
+addunitrec "Wolf Warrior"       		100 7 65 0 0
+    reclimiter "+Wolf Chief"
+addcomrec "Wolf Chief"				 10 1 50 5 0 
 	reclimiter "+Barbarian Warlord"
 	reclimiter "+Barbarian King"
-addcomrec "Wolf Chief"				 -1 1 25 5 0 
-	reclimiter "+Barbarian Warlord"
-	reclimiter "+Barbarian King"
-addcomrec   "Wolf Shaman"          10 1 75 5 0
+addcomrec   "Wolf Shaman"          5 1 75 5 0
 	reclimiter "+Wolf Chief"
-addmercrec "Steel Maiden"       		10 7 65 10 0
+addunitrec "Steel Maiden"       		100 7 65 0 5
+    reclimiter "+Steel Mother"
+addcomrec "Steel Mother"			10 1 50 5 5 
 	reclimiter "+Barbarian Warlord"
 	reclimiter "+Barbarian King"
-addcomrec "Steel Mother"			-1 1 25 5 0 
-	reclimiter "+Barbarian Warlord"
-	reclimiter "+Barbarian King"
-addcomrec  "Maiden Priestes"          10 1 75 5 0
+addcomrec  "Maiden Priestes"          5 1 75 5 0
 	reclimiter "+Steel Mother"
 
 selectclass 8 # necessary for some reason to keep the barbarian from getting the senators gold bonus. 
