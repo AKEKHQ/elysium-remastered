@@ -9077,23 +9077,23 @@ addcomrec   "Barbarian Leader"                	100 25 10 0
 	reclimiter "-Barbarian Leader"               # Owning a Barbarian Leader prevents the preceding offer.
 	reclimiter "-Barbarian Warlord"
 	reclimiter "-Barbarian King"
-addcomrec   "Mounted Chief"                    	10 25 10 0 
+addcomrec   "Mounted Chief"                    	10 75 5 0 
 addmercrec  "Mounted Scout"                    	15 1 15 10 0 
-addunitrec "Horned Warrior" 			100 7 65 0 10
+addunitrec "Horned Warrior" 			100 7 50 0 10
     reclimiter "+Horned Chief"
 addcomrec "Horned Chief"   			 10 1 50 5 10
 	reclimiter "+Barbarian Warlord"
 	reclimiter "+Barbarian King" 
 addcomrec   "Horned Shaman"          5 1 75 5 0
 	reclimiter "+Horned Chief"
-addunitrec "Wolf Warrior"       		100 7 65 0 0
+addunitrec "Wolf Warrior"       		100 7 50 0 0
     reclimiter "+Wolf Chief"
 addcomrec "Wolf Chief"				 10 1 50 5 0 
 	reclimiter "+Barbarian Warlord"
 	reclimiter "+Barbarian King"
 addcomrec   "Wolf Shaman"          5 1 75 5 0
 	reclimiter "+Wolf Chief"
-addunitrec "Steel Maiden"       		100 7 65 0 5
+addunitrec "Steel Maiden"       		100 7 50 0 5
     reclimiter "+Steel Mother"
 addcomrec "Steel Mother"			10 1 50 5 5 
 	reclimiter "+Barbarian Warlord"
