@@ -8811,12 +8811,11 @@ apcost 1
 montarg 2
 killtarg 9999
 airare -1
-minmonreq 1
+minmonreq 2
 addstring "Barbarian Swordsman"
 addstring "Barbarian Warrior"
 addstring "(&)Barbarian Swordsman"
 addstring "(&)Barbarian Warrior"
-minmonreq 1
 addstring "Barbarian Archer"
 addstring "(&)Barbarian Archer"
 alterloc 109
