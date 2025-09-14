@@ -8253,7 +8253,7 @@ addcomrec   "Chunari"                        2 55 10 0
 selectterr 834 
 name "Irminsul"
 spr "Sprites/Irminsul.tga"
-herbs             8 # Herbs:  8
+herbs             10 # Herbs:  10
 fungus            3 # Fungus:  3
 weed              3 # Weed:  3
 lifeforce       100 # 10 Lifeforce can be drained from this square per turn.
@@ -8318,7 +8318,7 @@ spr1 "Sprites/Ancestralleader1.tga"
 spr2 "Sprites/Ancestralleader2.tga"
 hp 24
 allitemslots
-	
+
 selectmonster "Sending"
 float
 
@@ -8431,6 +8431,22 @@ allitemslots                     # Has the full set of item slots.
 berserker                        # Can go berserk if hit in combat.  Berserk: +1 Strength, +10 Morale, fight to -20% HP.
 descr "Horned Warriors are veterans of many raids, marked by scars, trophies, and well-worn armor taken from the fallen. Unlike common fighters, they carry foreign steel and fight with the ease of those long accustomed to killing. They often lead warbands of their own, answering only to leaders strong enough to hold their loyalty."
 
+newmonster    "Horned Shaman"
+spr1 "Sprites/Hornedshaman1.tga"
+spr2 "Sprites/Hornedshaman2.tga"
+armor                          2 
+hp                             10 
+str                            5 
+mor                            6 
+mr                             6 
+rank                          -1 # back rank.
+spellweapon                5   2 # Storm magic at level 2.
+meleeweapon                1   6 # hammer.
+human                            
+allitemslots                     # Has the full set of item slots.
+
+descr "Horned Shamans are spiritual leaders of the Horned tribes, living deep in the mountains they have deep conection to the Lord of the sky, calling his wrath upon enemies. They say totems of thunder are inhabited by the spirits of Horned Shamans"
+
 newweapon "Hunting Javelins" #can be thrown more than once
 range 3
 init 3
@@ -8481,6 +8497,23 @@ allitemslots
 human
 descr "Wolf Warriors wear the pelts of beasts they have hunted alone, believing that strength passes from the wolf to the one who strikes the killing blow. They claim blood descent from Fenris, the first and greatest wolf, and honor him through ritual hunts and solitary trials."
 
+newmonster    "Wolf Shaman"
+spr1 "Sprites/Wolfshaman1.tga"
+spr2 "Sprites/Wolfshaman2.tga"
+armor                          1 
+hp                             10 
+str                            5 
+mor                            5 
+mr                             6 
+rank                           0 # Mid rank.
+frontpos
+spellweapon               47   2 # Beast wards at level 2.
+meleeweapon                1   3 # Staff
+human                            
+allitemslots                     # Has the full set of item slots.
+
+descr "Wolf Shamans are spiritual guides of the Wolf tribes, wear the pelts of beasts calling upon them in battle. They say beast totems are inhabited by spirits of Wolf shamans"
+
 newmonster "Steel Maiden"
 spr1 "Sprites/Steelmaiden1.tga"
 spr2 "Sprites/Steelmaiden2.tga"
@@ -8517,11 +8550,28 @@ berserker
 female
 descr "A Steel Mother leads the Steel Maidens. She does not ask for the role, and there is no ceremony to mark the moment it becomes hers. She is obeyed because she has endured more than most and shows no hesitation when giving orders. Punishments are swift, and disputes are settled on the training ground. Many of the younger Maidens were taken as children and raised in the camp. For them, the Steel Mother is the only figure of authority they have ever known."
 
-newmonster "Painted Warrior"
+newmonster    "Maiden Priestes"
+spr1 "Sprites/Maidenpriestes1.tga"
+spr2 "Sprites/Maidenpreistes2.tga"
+armor                          1 
+hp                             6 
+str                            5 
+mor                            6 
+mr                             8 
+rank                           -1 # back rank.
+frontpos
+spellweapon               46   2 # Maladies at level 2.
+meleeweapon                1   3 # Staff
+human                            
+allitemslots                     # Has the full set of item slots.
+female
+descr "Maiden Priestes are spiritual leaders of Steel Maiden tribes teaching ways of the Oath of Erka, they say spirits called to totems of maladies belonged to Maiden Priesteses"
+
+newmonster "Painted Swordsman"
 copystats "Painted Crystal Amazon"
 clearweapons
-spr1 "Sprites/Paintedwarrior1.tga"
-spr2 "Sprites/Paintedwarrior2.tga"
+spr1 "Sprites/Paintedsowrdsman1.tga"
+spr2 "Sprites/Paintedswordsman2.tga"
 armor                          1 
 hp                             7 
 str                            5 
@@ -8529,6 +8579,24 @@ mor                            5
 mr                             6 
 rank                           1 # Front rank.
 meleeweapon                1   2 # Broadsword d7 Slash damage.
+human                            
+shield                           # Reduces damage from most weapons by 0-1; 0-2 against ranged weapons.
+allitemslots                     # Has the full set of item slots.
+berserker                        # Can go berserk if hit in combat.  Berserk: +1 Strength, +10 Morale, fight to -20% HP
+descr "Painted Swordsmen are tattooed by the Wotan, who inscribe sacred runes using ink prepared with ash and elk fat. Each mark is a binding - a record of an ancestor's deed or a call to a spirit of war. The Wotan do not grant these lightly. Many seek the power the tattoos are said to bring, but few are willing to accept what the marks demand. Those who bear them fight with unnatural fervor, as if driven by the voices of those who came before them. Death holds no claim on them until their story is complete."
+
+newmonster "Painted Warrior"
+copystats "Painted Crystal Amazon"
+clearweapons
+spr1 "Sprites/Paintedwarrior1.tga"
+spr2 "Sprites/Paintedwarrior2.tga"
+armor                          0 
+hp                             7 
+str                            5 
+mor                            5 
+mr                             6 
+rank                           1 # Front rank.
+meleeweapon                2   3 # Axe: d8 slashing damage.
 human                            
 shield                           # Reduces damage from most weapons by 0-1; 0-2 against ranged weapons.
 allitemslots                     # Has the full set of item slots.
@@ -8581,11 +8649,12 @@ spr2 "Sprites/Barbarianking2.tga"
 clearweapons
 armor                          1 
 hp                            24 
-str                            6 
-mor                            9 
-mr                             7 
+str                            7 
+mor                            10 
+mr                             8 
 rank                           1 # Front rank.
 rearpos
+meleeweapon                5 907 # Magic Axe: d13 Slash damage.
 meleeweapon                5 907 # Magic Axe: d13 Slash damage.
 meleeweapon                5 907 # Magic Axe: d13 Slash damage.
 human                            
@@ -8724,34 +8793,49 @@ descr "With bribes, offerings and promises of conquest, the Warlord gains the lo
 newritual "Raid"  
 level 1
 free
-terr -64 # farms and hamlets
+terr -24 # village or smaller settlement or Hoburg village
 cost 0 -25
 apcost 1
 reducetown
 soundfx               57 
 aialways 50
 ainotnearhome          10
-descr "Raid a farm or hamlet for supplies and gold. This will destroy the settlement."
+descr "Raid a small settlment for supplies and gold. This will damage or destroy settlements."
 
 newritual "Resettle" 
 level 1
 free
 terr 184 #house ruins
+cost 0 10
 apcost 1
-montarg 1
+montarg 2
 killtarg 9999
 airare -1
 minmonreq 1
 addstring "Barbarian Swordsman"
-addstring "Barbarian Archer"
 addstring "Barbarian Warrior"
 addstring "(&)Barbarian Swordsman"
-addstring "(&)Barbarian Archer"
 addstring "(&)Barbarian Warrior"
-alterloc 5
+minmonreq 1
+addstring "Barbarian Archer"
+addstring "(&)Barbarian Archer"
+alterloc 109
 soundfx               57 
 aialways 50
-descr "The Barbarians regularly retire their aged warriors to farm the land. They largely rely on reoccupying raided settlements and starting simple farms on the abandoned fields. Destroys 1 friendly barbarian warrior, swordsman, or archer to create a farm on any house ruins."
+descr "The Barbarians regularly give their people opportunity to retire their people to live on the land they conquered. They largely rely on reoccupying raided settlements, and after a belssing is given by the chief ritual they build yurts on the abandoned fields. Destroys 1 friendly barbarian warrior or swordsman, and 1 archer to create a tent village on any house ruins."
+
+newritual "Set warcamp"
+level 2
+free
+terr 109 #Tent village
+cost 0 100
+cost 1 25
+apcost 2
+alterloc 113
+soundfx               57 
+aialways 50
+ainotnearhome          10
+descr "Barbarian warlord converts a tent village into a warcamp, where his wariors can gather."
 
 selectmonster "Barbarian Leader"
 power 0 1
@@ -8798,57 +8882,57 @@ newritual "Design Bear Tattoo"
 copyritual "Design Lion Tattoo"
 cost 2 0
 level 1
-descr "..."
+descr "Tattoo of Hunting will grant painted wariors greater strenght and bravery"
 
 newritual "Design Aurochs Tattoo"
 copyritual "Design Badger Tattoo"
 cost 2 0
 level 1
-descr "..."
+descr "Aurochs Tattoo will grant painted wariors greater endurance"
 
 newritual "Design Tattoo of Hunting"
 copyritual "Design Eagle Tattoo"
 cost 2 0
 level 1
-descr "..."
+descr "Tattoo of Hunting will guide wariors arrows"
 
 newritual "Design Moon Tattoo"
 copyritual "Design Serpent Tattoo" 
 cost 2 0
-descr "..."
+descr "Moon Tattoo will fortify mind against magic and body against poisons"
 
 newritual "Design Sun Tattoo"
 copyritual "Design Gryphon Tattoo"
 cost 2 0 
 level 2
-descr "..."
+descr "Sun Tattoo will strenghten wariors and allow them to endure heat"
 
 newritual "Design Skull Tattoo" 
 copyritual "Design Skull Tattoo"
 cost 2 0 
 level 3
-descr "..."
+descr "Skull Tattoo will harden the skin of a warior, making it harer to pierce"
 
 newritual "Design Tattoo of Rebirth"
 copyritual "Design Hydra Tattoo"
 cost 2 0 
 level 3
-descr "..."
+descr "Tattoo of Rebirth will grant painted wariors ability to recover from any wound"
 
 newritual "Design Tattoo of Travels" 
 copyritual "Design Pegasus Tattoo"
 cost 3 0
 level 3
-descr "..."
+descr "Tattoo of Travels will grant painted wariors endurance for fast travel"
 
 newritual "Paint Enchanted Tattoos" 
-cost 2 75 
+cost 2 100 
 level 1 
-promotion 3  
+promotion 5  
 addstring "Barbarian Warrior"
 addstring "Painted Warrior"
 addstring "Barbarian Swordsman"
-addstring "Painted Warrior"
+addstring "Painted Swordsman"
 addstring "Barbarian Archer"
 addstring "Painted Archer"
 addstring "Barbarian Bowman"
@@ -8868,9 +8952,9 @@ power 0 3
 newritpow #Soothsayer
 
 newritual "Omens"
+cost 0 5
 level                  1
-cost 0 10
-apcost -1
+apcost 0
 chooseloc 1
 multiplane 0
 scatterscry           3 # Scry (broken up) at target location, totaling 3 squares.
@@ -8978,7 +9062,8 @@ addunitrec  "Barbarian Swordsman"             	100  7   50   0   10
 addunitrec  "Barbarian Cavalry"               	100  4   50   0    0
 addunitrec  "Barbarian Lancer"                	100  4   50   0   10
 addunitrec  "Battering Ram"			100  1   25   0   25
-addunitrec  "Barbarian Werebear"               	30   1   25   0    0 
+addmercrec  "Barbarian Werebear"               	5   1   25   0    0
+addunitrec  "Barbarian Werebear"               	60   2   50   0    0 
 	recterr 834
 addcomrec   "Spirit Guide"                      8 75 20 0 
 templerec                                     # +3% to chance per temple owned, to a max of +15% for 5+ temples.
@@ -8998,18 +9083,24 @@ addmercrec "Horned Warrior" 			10 7 65 10 0
 addcomrec "Horned Chief"   			 -1 1 25 5 
 	reclimiter "+Barbarian Warlord"
 	reclimiter "+Barbarian King" 
+addcomrec   "Horned Chief"          10 75 20 0 
+	reclimiter "+Barbarian King"
 addmercrec "Wolf Warrior"       		10 7 65 10 0
 	reclimiter "+Barbarian Warlord"
 	reclimiter "+Barbarian King"
 addcomrec "Wolf Chief"				 -1 1 25 5 0 
 	reclimiter "+Barbarian Warlord"
 	reclimiter "+Barbarian King"
+addcomrec   "Wolf Shaman"          10 75 20 0 
+	reclimiter "+Wolf Chief"
 addmercrec "Steel Maiden"       		10 7 65 10 0
 	reclimiter "+Barbarian Warlord"
 	reclimiter "+Barbarian King"
 addcomrec "Steel Mother"			-1 1 25 5 0 
 	reclimiter "+Barbarian Warlord"
 	reclimiter "+Barbarian King"
+addcomrec  "Maiden Priestes"          10 75 20 0 
+	reclimiter "+Steel Mother"
 
 selectclass 8 # necessary for some reason to keep the barbarian from getting the senators gold bonus. 
 ################################## Senator ################################################## 
@@ -18028,9 +18119,9 @@ terr                 -42 	# Required terrain: any land.
 summoning                	# The ritual will summon the monsters specified in a random string.
 apcost                 1 	# Actual AP cost: 2.
 aialways              100 	# Extra 50% chance that AI will try to cast this ritual if it currently can, but it will not make long term plans to do so.
-addstring     "Flesh Golem"
+addstring     "1d2*Flesh Golem"
 nexttoo
-descr "By taking five random corpses and stitching them together into one large humanoid being the Nekromant can create a Flesh Golem.  The creation of a Flesh Golem is relatively quick and inexpensive, but it is not nearly as powerful as golems made out of more solid materials."
+descr "By taking corpses and stitching them together into large humanoids the Nekromant can create a Flesh Golems.  The creation of a Flesh Golem is relatively quick and inexpensive, but it is not nearly as powerful as golems made out of more solid materials."
 
 newritual     "Iron Grafting"                                             #  61
 ritpow                39 	# Nekromant
@@ -22706,33 +22797,6 @@ apcost            2 # Action Point cost for moving through the terrain: 2
 ug
 
 # ------------ Agartha Monsters -----------------------# 
-
-newmonster "Tunneling Worm"
-copyspr "Cave Grub"
-armor                          0 
-hp                            30 
-str                            6 
-mor                           99 
-mr                             1 
-rank                           1 # Front rank.
-meleeweapon                7 667 # Corrosive Bite: d7 Slash damage.
-fast
-stupid
-tunnel
-sleepres                         # Sleep immunity.
-charmres                         # Charm immunity.
-bluntres                         # Blunt resistance (half damage).
-size2x2                          # Takes up 2x2 squares on the battlefield (overrides sprite size). 
-#lovesterr 51 #cave wall
-#hatesterr 350 #moist cave wall
-hatesterr -58 #Gold income locations
-noheal
-dmgonterr -1
-wander 1 
-wanderrest 0
-farsight
-descr "A giant worm digging tunnels across Agartha."
-
 newmonster "Spectral Bride"
 copystats "Banshee"
 stationary
