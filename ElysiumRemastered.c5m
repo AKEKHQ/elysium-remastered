@@ -8793,7 +8793,7 @@ descr "With bribes, offerings and promises of conquest, the Warlord gains the lo
 newritual "Raid"  
 level 1
 free
-terr -24 # village or smaller settlement or Hoburg village
+terr -64 # farm or hamlet
 cost 0 -25
 apcost 1
 reducetown
