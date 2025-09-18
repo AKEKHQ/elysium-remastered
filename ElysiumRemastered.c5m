@@ -8776,6 +8776,7 @@ addstring "Barbarian Leader"
 addstring "Barbarian Warlord"
 nomonmasteryreq 1
 addstring "(-)Barbarian Warlord"
+addstring "(-)Barbarian King"
 aialways 999
 forgetcurrit 
 descr "Atop the battlements of conquered city, the Barbarian leader declares himself Warlord. Independent warbands will rally to his cause. Will promote the Barbarian Leader to Warlord, and enables some new mercenary offers."
@@ -8796,7 +8797,7 @@ descr "With bribes, offerings and promises of conquest, the Warlord gains the lo
 
 newritual "Assign Warlord"
 level 3
-cost 0 150 
+cost 0 50 
 promotion 1 
 addstring "Barbarian Leader"
 addstring "Barbarian Warlord"
