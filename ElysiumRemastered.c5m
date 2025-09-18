@@ -4693,7 +4693,6 @@ foreststealth
 stupid
 forest1
 jungle1
-stationary
 inanimate
 poisoncloud 2
 descr "While they may appear quite similar to the soulless, the Yellow Musk Thralls are not in fact undead. Quite the contrary, they are best thought of as walking saplings of the Yellow Musk Creeper, and as such very much alive."  
@@ -4706,7 +4705,6 @@ foreststealth
 stupid
 forest1
 jungle1
-stationary
 inanimate
 poisoncloud 2
 descr "While they may appear quite similar to the soulless, the Yellow Musk Thralls in fact undead. Quite the contrary, they are best thought of as walking saplings of the Yellow Musk Creeper, and as such very much alive."
@@ -8316,6 +8314,7 @@ allitemslots
 selectmonster "Ancestral Leader"
 spr1 "Sprites/Ancestralleader1.tga"
 spr2 "Sprites/Ancestralleader2.tga"
+spiritsight
 hp 24
 allitemslots
 
@@ -8441,7 +8440,7 @@ mor                            6
 mr                             6 
 rank                          -1 # back rank.
 spellweapon                5   2 # Storm magic at level 2.
-meleeweapon                1   6 # hammer.
+meleeweapon                3   6 # hammer 1d6 damage
 human                            
 allitemslots                     # Has the full set of item slots.
 libmastery                     2 # Can level up in a level 2 library.
@@ -8509,12 +8508,12 @@ mr                             6
 rank                           -1 # back rank.
 frontpos
 spellweapon               47   2 # Beast wards at level 2.
-meleeweapon                1   3 # Staff
+meleeweapon                0   5 # Staff: d3 Blunt damage.
 human                            
 allitemslots                     # Has the full set of item slots.
 libmastery                     2 # Can level up in a level 2 library.
 
-descr "Wolf Shamans are spiritual guides of the Wolf tribes, wear the pelts of beasts calling upon them in battle. They say beast totems are inhabited by spirits of Wolf shamans"
+descr "Wolf Shamans are spiritual guides of the Wolf tribes, they wear the pelts of beasts and call upon them in battle. They say beast totems are inhabited by spirits of Wolf shamans"
 
 newmonster "Steel Maiden"
 spr1 "Sprites/Steelmaiden1.tga"
@@ -8563,7 +8562,7 @@ mr                             8
 rank                           -1 # back rank.
 frontpos
 spellweapon               46   2 # Maladies at level 2.
-meleeweapon                1   3 # Staff
+meleeweapon                0   5 # Staff: d3 Blunt damage.
 human                            
 allitemslots                     # Has the full set of item slots.
 libmastery                     2 # Can level up in a level 2 library.
@@ -8599,7 +8598,7 @@ str                            5
 mor                            5 
 mr                             6 
 rank                           1 # Front rank.
-meleeweapon                2   3 # Axe: d8 slashing damage.
+meleeweapon                1   3 # Axe: d8 slashing damage.
 human                            
 shield                           # Reduces damage from most weapons by 0-1; 0-2 against ranged weapons.
 allitemslots                     # Has the full set of item slots.
@@ -8775,6 +8774,8 @@ terr -28 #Towns and cities
 promotion 1
 addstring "Barbarian Leader"
 addstring "Barbarian Warlord"
+nomonmasteryreq 1
+addstring "(-)Barbarian Warlord"
 aialways 999
 forgetcurrit 
 descr "Atop the battlements of conquered city, the Barbarian leader declares himself Warlord. Independent warbands will rally to his cause. Will promote the Barbarian Leader to Warlord, and enables some new mercenary offers."
@@ -8787,9 +8788,23 @@ terr -1102
 promotion 1 
 addstring "Barbarian Warlord"
 addstring "Barbarian King" 
+nomonworldreq 1
+addstring "(-)Barbarian King"
 aialways 999
 forgetcurrit
 descr "With bribes, offerings and promises of conquest, the Warlord gains the loyalty of the chiefs and favor of the spirits. Will promote the Warlord to Barbarian King."  
+
+newritual "Assign Warlord"
+level 3
+cost 0 150 
+promotion 1 
+addstring "Barbarian Leader"
+addstring "Barbarian Warlord"
+nomonplayerreq 3
+addstring "(-)Barbarian Warlord"
+aialways 999
+forgetcurrit
+descr "Barbarian king has the authority to assign the title of a Warlord to any upcoming barbarian leader he sees fit. Buty he must be careful while doing this, as assigning more than a few Warlords would spark animosity amongst others leaders"
 
 # Raid + resettlement is a neat mechanic, which is taken straight from Alexthebeetrayer's Large overhaul mod.
 
@@ -8798,7 +8813,7 @@ level 1
 free
 terr -64 # farm or hamlet
 cost 0 -25
-apcost 1
+apcost 0
 reducetown
 soundfx               57 
 aialways 50
@@ -8808,7 +8823,7 @@ descr "Raid a small settlment for supplies and gold. This will damage or destroy
 newritual "Resettle" 
 level 1
 free
-terr 184 #house ruins
+terr 184 & 185 #house or city ruins
 cost 0 10
 apcost 1
 montarg 2
@@ -8826,7 +8841,20 @@ soundfx               57
 aialways 50
 descr "The Barbarians regularly give their people opportunity to retire their people to live on the land they conquered. They largely rely on reoccupying raided settlements, and after a belssing is given by the chief ritual they build yurts on the abandoned fields. Destroys 1 friendly barbarian warrior or swordsman, and 1 archer to create a tent village on any house ruins."
 
-newritual "Set warcamp"
+newritual "Pillage"  
+level 2
+free
+terr -32 # village or larger settlement
+cost 0 -50
+cost 1 -10
+apcost 2
+reducetown
+soundfx               57 
+aialways 25
+ainotnearhome          5
+descr "Warlord sends his horde to pillage and burn a town. This will damage or destroy settlements."
+
+newritual "Set Camp"
 level 2
 free
 terr 109 #Tent village
@@ -8837,7 +8865,7 @@ alterloc 113
 soundfx               57 
 aialways 50
 ainotnearhome          10
-descr "Barbarian warlord converts a tent village into a warcamp, where his wariors can gather."
+descr "Barbarian warlord sets up military camp a tent village, there his wariors can gather."
 
 selectmonster "Barbarian Leader"
 power 0 1
@@ -8846,7 +8874,7 @@ selectmonster "Barbarian Warlord"
 power 0 2 
 
 selectmonster "Barbarian King"
-power 0 2 
+power 0 3 
 
 newritpow #Wotan
 
@@ -8884,36 +8912,36 @@ newritual "Design Bear Tattoo"
 copyritual "Design Lion Tattoo"
 cost 2 0
 level 1
-descr "Tattoo of Hunting will grant painted wariors greater strenght and bravery"
+descr "Bear tattoo is a symbol of strenght and bravery"
 
 newritual "Design Aurochs Tattoo"
 copyritual "Design Badger Tattoo"
 cost 2 0
 level 1
-descr "Aurochs Tattoo will grant painted wariors greater endurance"
+descr "Aurochs Tattoo is a symbol of endurance"
 
 newritual "Design Tattoo of Hunting"
 copyritual "Design Eagle Tattoo"
 cost 2 0
 level 1
-descr "Tattoo of Hunting will guide wariors arrows"
+descr "Tattoo of Hunting a symbol of accuracy"
 
 newritual "Design Moon Tattoo"
 copyritual "Design Serpent Tattoo" 
 cost 2 0
-descr "Moon Tattoo will fortify mind against magic and body against poisons"
+descr "Moon Tattoo will fortify mind against foreign influence"
 
 newritual "Design Sun Tattoo"
 copyritual "Design Gryphon Tattoo"
 cost 2 0 
 level 2
-descr "Sun Tattoo will strenghten wariors and allow them to endure heat"
+descr "Sun Tattoo will grant strenght and fire resistance"
 
 newritual "Design Skull Tattoo" 
 copyritual "Design Skull Tattoo"
 cost 2 0 
 level 3
-descr "Skull Tattoo will harden the skin of a warior, making it harer to pierce"
+descr "Skull Tattoo will harden the skin of a warior, making it hard to pierce"
 
 newritual "Design Tattoo of Rebirth"
 copyritual "Design Hydra Tattoo"
@@ -8925,7 +8953,7 @@ newritual "Design Tattoo of Travels"
 copyritual "Design Pegasus Tattoo"
 cost 3 0
 level 3
-descr "Tattoo of Travels will grant painted wariors endurance for fast travel"
+descr "Tattoo of Travels will allow painted warriors to travel quickly"
 
 newritual "Paint Enchanted Tattoos" 
 cost 2 100 
@@ -8946,7 +8974,7 @@ selectmonster "Warpriest"
 power 0 1
 
 selectmonster "Painted Priest"
-power 0 2 
+power 0 2
 
 selectmonster "Wotan"
 power 0 3
@@ -8954,15 +8982,15 @@ power 0 3
 newritpow #Soothsayer
 
 newritual "Omens"
-cost 0 5
+cost 0 10
 level                  1
-apcost 0
+apcost -1
 chooseloc 1
 multiplane 0
 scatterscry           3 # Scry (broken up) at target location, totaling 3 squares.
 soundfx               70 # Sound effect when the ritual is cast: echo.wav.
 airare                 5 # Only 5% of normal chance that AI will cast this ritual.
-descr "The Soothsayer inspects freshly spilled animal entrails, interpreting the patterns and signs within. Through the arrangement of organs and blood, he may divine distant events, or glimpse future outcomes. Will reveal a small area at target location".  
+descr "The Soothsayer inhales herb incense and inspects freshly spilled animal entrails, interpreting the patterns and signs within. Through the arrangement of organs and blood, he may divine distant events, or glimpse future outcomes. Will reveal a small area at target location".  
 
 selectmonster "Soothsayer"
 power 0 1
@@ -9015,9 +9043,9 @@ summoning                # The ritual will summon the monsters specified in a ra
 terrboost              4 # Adds 1 to the number of monsters summoned in this terrain: Ancient Forest.
 terrscale50           19 # 50% more monsters summoned in this terrain: Old Battlefield.
 addstring     "(4)c*Ancestor Guide"     # This string will only be included in terrain: Ancient Forest.
-addstring     "c*Ancestral Hero"
+addstring     "c*Ancestral Hero & 1d2+1*Ancestral Warrior"
 addstring     "c*Ancestral Chief & 1d2+1*Ancestral Lancer"
-addstring     "1d2+1*Ancestral Warrior & 1d2+1*Ancestral Archer"
+addstring     "1d3+1*Ancestral Warrior & 1d2+1*Ancestral Archer"
 addstring     "2d2+2*Ancestral Warrior"
 addstring     "2d2*Ancestral Lancer"
 rebateterr20  834
@@ -9063,9 +9091,13 @@ addunitrec  "Barbarian Archer"                	100  7   50   0    0
 addunitrec  "Barbarian Swordsman"             	100  7   50   0   10
 addunitrec  "Barbarian Cavalry"               	100  4   50   0    0
 addunitrec  "Barbarian Lancer"                	100  4   50   0   10
-addunitrec  "Battering Ram"			100  1   25   0   25
-addmercrec  "Barbarian Werebear"               	5   1   25   0    0
-addunitrec  "Barbarian Werebear"               	60   2   50   0    0 
+addunitrec  "Battering Ram"			            100  1   25   0   25
+addmercrec  "Barbarian Werebear"               	5    1   25   0    0
+addmercrec  "Barbarian Werebear"               	75   1   25   0    0 
+	recterr 834
+addmercrec  "Barbarian Werebear"               	50   1   25   0    0 
+	recterr 834
+addmercrec  "Barbarian Werebear"               	25   1   25   0    0 
 	recterr 834
 addcomrec   "Spirit Guide"                      8 75 20 0 
 templerec                                     # +3% to chance per temple owned, to a max of +15% for 5+ temples.
@@ -9077,29 +9109,33 @@ addcomrec   "Barbarian Leader"                	100 25 10 0
 	reclimiter "-Barbarian Leader"               # Owning a Barbarian Leader prevents the preceding offer.
 	reclimiter "-Barbarian Warlord"
 	reclimiter "-Barbarian King"
+addcomrec   "Barbarian Leader"                	20 25 10 0 
 addcomrec   "Mounted Chief"                    	10 50 5 0 
 addmercrec  "Mounted Scout"                    	15 1 15 10 0 
-addunitrec "Horned Warrior" 			100 7 50 0 10
+addunitrec "Horned Warrior" 			100 7 50 0 15
     reclimiter "+Horned Chief"
-addcomrec "Horned Chief"   			 10 1 50 5 10
+addcomrec "Horned Chief"   			 10 1 60 5 10
 	reclimiter "+Barbarian Warlord"
 	reclimiter "+Barbarian King" 
-addcomrec   "Horned Shaman"          5 1 75 5 0
+addcomrec   "Horned Shaman"          8 1 60 20 0
 	reclimiter "+Horned Chief"
-addunitrec "Wolf Warrior"       		100 7 50 0 0
+	templerec
+addunitrec "Wolf Warrior"       		100 7 60 0 5
     reclimiter "+Wolf Chief"
-addcomrec "Wolf Chief"				 10 1 50 5 0 
+addcomrec "Wolf Chief"				 10 1 60 5 0 
 	reclimiter "+Barbarian Warlord"
 	reclimiter "+Barbarian King"
-addcomrec   "Wolf Shaman"          5 1 75 5 0
+addcomrec   "Wolf Shaman"          8 1 60 20 0
 	reclimiter "+Wolf Chief"
-addunitrec "Steel Maiden"       		100 7 50 0 5
+	templerec
+addunitrec "Steel Maiden"       		100 7 55 0 10
     reclimiter "+Steel Mother"
-addcomrec "Steel Mother"			10 1 50 5 5 
+addcomrec "Steel Mother"			10 1 60 5 5 
 	reclimiter "+Barbarian Warlord"
 	reclimiter "+Barbarian King"
-addcomrec  "Maiden Priestes"          5 1 75 5 0
+addcomrec  "Maiden Priestes"          8 1 60 20 0
 	reclimiter "+Steel Mother"
+	templerec
 
 selectclass 8 # necessary for some reason to keep the barbarian from getting the senators gold bonus. 
 ################################## Senator ################################################## 
